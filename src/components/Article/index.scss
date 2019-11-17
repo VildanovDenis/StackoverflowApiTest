@@ -1,5 +1,55 @@
 .article {
+    margin-bottom: 10px;
+
     &__link-wrapper {
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        min-width: 320px;
+        max-width: 375px;
+        height: 40px;
+        padding: 0 5px;
+        margin: 0 auto;
+    }
+
+    &__userinfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__user-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    &__title {
+        justify-self: flex-end;
+        width: 310px;
+        margin: 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 1024px) {
+    .article {
+        margin-bottom: 15px;
+
+        &__link-wrapper {
+            max-width: 620px;
+        }
+
+        &__title {
+            max-width: 550px;
+            width: 550px;
+            line-height: 20px;
+            white-space: pre-wrap;
+            text-overflow: unset;
+            overflow: visible;
+        }
     }
 }
