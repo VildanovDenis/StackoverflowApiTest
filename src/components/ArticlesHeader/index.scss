@@ -1,0 +1,19 @@
+.articles-header {
+    min-width: 320px;
+    max-width: 375px;
+    margin: 0 auto 10px;
+    padding: 5px;
+    
+    &__subtitle {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    &__button {
+        width: 100px;
+        font-size: 16px;
+        line-height: 20px;
+        border: 0;
+        background-color: lightgray;
+    }
+}

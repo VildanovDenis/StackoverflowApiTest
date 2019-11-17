@@ -2,6 +2,7 @@ import React from 'react';
 import * as _ from 'lodash';
 
 import { Article } from '../../components/Article';
+import { ArticlesHeader } from '../../components/ArticlesHeader';
 
 import { dataStatuses } from '../../helpers/data-statuses';
 
@@ -12,7 +13,9 @@ export class ArticlesContainer extends React.PureComponent {
         this.state = {
             dataStatus: dataStatuses.initial,
             data: null
-        }
+        };
+
+        this.onReverseArticleClick = this.onReverseArticleClick.bind(this);
     };
 
     async componentDidMount() {
@@ -48,6 +51,15 @@ export class ArticlesContainer extends React.PureComponent {
         return true
     }
 
+    onReverseArticleClick() {
+        const { data } = this.state;
+        const newData = data.reverse();
+
+        this.setState({
+            data: newData
+        });
+    }
+
     render() {
         const { dataStatus, data } = this.state;
 
@@ -61,6 +73,7 @@ export class ArticlesContainer extends React.PureComponent {
 
         return (
             <section className='articles-container'>
+                <ArticlesHeader reverseFilter={this.onReverseArticleClick} />
                 {
                     data !== null &&
                     data.map(item => (
