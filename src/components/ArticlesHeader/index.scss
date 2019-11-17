@@ -17,3 +17,10 @@
         background-color: lightgray;
     }
 }
+
+@media (min-width: 1024px) {
+    .articles-header {
+        max-width: 620px;
+        margin-bottom: 15px;
+    }
+}
