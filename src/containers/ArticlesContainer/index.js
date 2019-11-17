@@ -15,7 +15,7 @@ export class ArticlesContainer extends React.PureComponent {
             data: null
         };
 
-        this.onReverseArticleClick = this.onReverseArticleClick.bind(this);
+        this.onReverseArticlesClick = this.onReverseArticlesClick.bind(this);
     };
 
     async componentDidMount() {
@@ -51,12 +51,11 @@ export class ArticlesContainer extends React.PureComponent {
         return true
     }
 
-    onReverseArticleClick() {
+    onReverseArticlesClick() {
         const { data } = this.state;
-        const newData = data.reverse();
 
         this.setState({
-            data: newData
+            data: _.reverse(Array.from(data))
         });
     }
 
@@ -73,7 +72,7 @@ export class ArticlesContainer extends React.PureComponent {
 
         return (
             <section className='articles-container'>
-                <ArticlesHeader reverseFilter={this.onReverseArticleClick} />
+                <ArticlesHeader reverseFilter={this.onReverseArticlesClick} />
                 {
                     data !== null &&
                     data.map(item => (
