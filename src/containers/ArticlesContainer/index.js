@@ -6,6 +6,8 @@ import { ArticlesHeader } from '../../components/ArticlesHeader';
 
 import { dataStatuses } from '../../helpers/data-statuses';
 
+import './index.scss';
+
 export class ArticlesContainer extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -63,11 +65,19 @@ export class ArticlesContainer extends React.PureComponent {
         const { dataStatus, data } = this.state;
 
         if (dataStatus === dataStatuses.initial || dataStatus === dataStatuses.fetching) {
-            return <p>Loading...</p>
+            return (
+                <section className='articles-container'>
+                    <p className='articles-container__message'>Loading...</p>
+                </section>
+            )
         }
 
         if (dataStatus === dataStatuses.error) {
-            return <p>Errored, please try later.</p>
+            return (
+                <section className='articles-container'>
+                    <p className='articles-container__message'>Errored, please try later.</p>
+                </section>
+            )
         }
 
         return (
