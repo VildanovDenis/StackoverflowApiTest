@@ -24,7 +24,7 @@ export class ArticlesContainer extends React.PureComponent {
             const res = await fetch(url);
             const data = await res.json();
             const filteredData = _.filter(data.items, this.filterArticles);
-            const sortedData = filteredData.sort((a, b) => a.creation_date - b.creation_date);
+            const sortedData = _.sortBy(filteredData, ['creation_date']);
     
             this.setState({
                 dataStatus: dataStatuses.success,
