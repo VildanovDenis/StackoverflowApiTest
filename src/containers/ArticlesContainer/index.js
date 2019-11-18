@@ -8,6 +8,9 @@ import { dataStatuses } from '../../helpers/data-statuses';
 
 import './index.scss';
 
+/**
+ * Represents articles container with fetch logic.
+ */
 export class ArticlesContainer extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -40,6 +43,10 @@ export class ArticlesContainer extends React.PureComponent {
         }
     };
 
+    /**
+     * Checks is article answered and owner reputation not less than 50
+     * @param {object} article
+     */
     filterArticles(article) {
         if (article.is_answered === false) {
             return false
@@ -64,6 +71,9 @@ export class ArticlesContainer extends React.PureComponent {
     render() {
         const { dataStatus, data } = this.state;
 
+        /**
+         * renders loading, is status initial or feching
+         */
         if (dataStatus === dataStatuses.initial || dataStatus === dataStatuses.fetching) {
             return (
                 <section className='articles-container'>
@@ -72,6 +82,9 @@ export class ArticlesContainer extends React.PureComponent {
             )
         }
 
+        /**
+         * renders error, if fetch errored.
+         */
         if (dataStatus === dataStatuses.error) {
             return (
                 <section className='articles-container'>
@@ -80,6 +93,9 @@ export class ArticlesContainer extends React.PureComponent {
             )
         }
 
+        /**
+         * renders articles, if fetch success
+         */
         return (
             <section className='articles-container'>
                 <ArticlesHeader reverseFilter={this.onReverseArticlesClick} />

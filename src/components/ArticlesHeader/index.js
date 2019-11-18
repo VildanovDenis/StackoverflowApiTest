@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 
 import './index.scss';
 
+/**
+ * 
+ * @param {function} reverseFilter - function, that calls to reverse mapped data. 
+ */
 export const ArticlesHeader = ({ reverseFilter }) => {
     const [isReversed, toggleReverse] = useState(false);
 

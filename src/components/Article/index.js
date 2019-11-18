@@ -2,6 +2,13 @@ import React from 'react';
 
 import './index.scss';
 
+/**
+ * Represent article view
+ * @param {string} userImage - Avatar of the article owner
+ * @param {string} userName - Name of the article owner
+ * @param {string} postLink - Link to original post
+ * @param {string} title - Title of the post
+ */
 export const Article = ({ userImage, userName, postLink, title }) => {
     return (
         <article className='article'>
